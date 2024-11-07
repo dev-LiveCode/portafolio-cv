@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { IMenu } from '../../interfaces/interfaces';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
@@ -12,6 +14,11 @@ export class HeaderComponent implements OnInit {
 
   logo!: string
 
+  itemsMenu: IMenu[] = [
+    {path: 'about', text: 'About'},
+    {path: 'projects', text: 'Projects'},
+    {path: 'blog', text: 'Blog'}
+  ]
 
   get isDark() {
     return document.body.classList.contains('dark')

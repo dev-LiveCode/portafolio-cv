@@ -28,6 +28,7 @@ module.exports = {
           '900': '#332e81',
           '950': '#1e1b4b',
         },
+        'darkConfig': '#1a1b2e'
       })
     },
   },

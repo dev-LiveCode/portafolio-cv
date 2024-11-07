@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeroSectionComponent } from "../../shared/hero-section/hero-section.component";
+import { HeroSectionComponent } from "../../shared/components/hero-section/hero-section.component";
 
 @Component({
   selector: 'app-home',
