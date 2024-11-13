@@ -1,0 +1,36 @@
+<div class="relative mt-10 flex items-center">
+    <!-- Botón Izquierdo -->
+    <button
+      (click)="scrollLeft()"
+      class="absolute left-0 z-10 p-2 bg-gray-800 text-white rounded-full"
+    >
+      <i class="fa-solid fa-angle-left"></i>
+    </button>
+
+    <!-- Contenedor de las Etiquetas -->
+    <div
+      #tagsContainer
+      class="flex items-center gap-x-6 overflow-x-hidden scrollbar-hide p-10"
+    >
+      <div
+        class="inline-flex items-center rounded-full px-4 py-1 font-medium text-white whitespace-nowrap transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:cursor-default"
+        [ngClass]="tool.color"
+        *ngFor="let tool of items"
+      >
+        <i
+          *ngIf="tool.icon"
+          [class]="tool.icon"
+          class="mr-2 scale-125"
+        ></i>
+        {{ tool.text }}
+      </div>
+    </div>
+
+    <!-- Botón Derecho -->
+    <button
+      (click)="scrollRight()"
+      class="absolute right-0 z-10 p-2 bg-gray-800 text-white rounded-full"
+    >
+      <i class="fa-solid fa-angle-right"></i>
+    </button>
+  </div>

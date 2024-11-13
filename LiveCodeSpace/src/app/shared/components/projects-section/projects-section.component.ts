@@ -1,11 +1,13 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { IProject, PROJECTS } from '../../interfaces/interfaces';
 import { CommonModule } from '@angular/common';
+import { TagsComponent } from "../tags/tags.component";
+import { ItemProjectSectionComponent } from "../item-project-section/item-project-section.component";
 
 @Component({
   selector: 'app-projects-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ItemProjectSectionComponent],
   templateUrl: './projects-section.component.html',
   styles: `
   /* Agregar en el archivo de estilos global */
@@ -17,15 +19,15 @@ import { CommonModule } from '@angular/common';
   scrollbar-width: none; /* Para Firefox */
 }`
 })
-export class ProjectsSectionComponent implements OnInit {
+export class ProjectsSectionComponent {
 
   projects: IProject[] = PROJECTS
-
-  @ViewChild('tagsContainer', { static: true }) tagsContainer!: ElementRef;
 
   selectedTest!: IProject
 
   isContentHidden = false; // Estado que controla si el contenido está oculto
+
+  active: number = 0;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -37,15 +39,12 @@ export class ProjectsSectionComponent implements OnInit {
     let showThreshold = 0;
     let hideThreshold = 0;
 
-    console.log('acnho: '+screenWidth)
-    console.log('scroll: '+scrollPosition)
-
-    if (screenWidth > 1024) { // Pantallas grandes (desktop)
+    if (screenWidth > 1200) { // Pantallas grandes (desktop)
       showThreshold = 300;
       hideThreshold = 800;
     } else if (screenWidth > 768) { // Pantallas medianas (tablet)
-      showThreshold = 400;
-      hideThreshold = 1400;
+      showThreshold = 500;
+      hideThreshold = 1200;
     } else { // Pantallas pequeñas (móviles)
       showThreshold = 400;
       hideThreshold = 1400;
@@ -53,6 +52,8 @@ export class ProjectsSectionComponent implements OnInit {
 
 
     this.isContentHidden = scrollPosition > hideThreshold || scrollPosition < showThreshold ;
+
+    // this.isContentHidden = false;
   }
 
   @HostListener('window:resize', [])
@@ -60,60 +61,21 @@ export class ProjectsSectionComponent implements OnInit {
     this.onWindowScroll(); // Actualiza el comportamiento en función del nuevo tamaño de pantalla
   }
 
-  currentImageIndex = 0;
-  fadeIn = false;
-  intervalId: any;
-
-  currentSlide = 0;
-
-  ngOnInit(): void {
-    this.selectedTest = this.projects[0]
-    this.intervalId = setInterval(() => {
-      this.fadeIn = true
-      setTimeout(()=>{
-        this.fadeIn = false
-        this.currentImageIndex = (this.currentImageIndex + 1) % this.selectedTest.img.length;
-      }, 1000)
-    }, 5000); // Puedes ajustar el tiempo de transición
-  }
-
-  ngOnDestroy(): void {
-    // Limpia el intervalo cuando el componente se destruye
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-  }
-
-
-  scrollLeft() {
-    this.tagsContainer.nativeElement.scrollBy({
-      left: -150, // Ajusta el valor para la cantidad de desplazamiento hacia la izquierda
-      behavior: 'smooth',
-    });
-  }
-
-  scrollRight() {
-    this.tagsContainer.nativeElement.scrollBy({
-      left: 150, // Ajusta el valor para la cantidad de desplazamiento hacia la derecha
-      behavior: 'smooth',
-    });
-  }
-  
-
-  nextSlide() {
-    if (this.currentSlide < this.projects.length - 1) {
-      this.currentSlide++;
+  next(){
+    if (this.active < this.projects.length - 1) {
+      this.active++;
     } else {
-      this.currentSlide = 0; // Reiniciar al primer slide
+      this.active = 0; // Reiniciar al primer slide
     }
   }
 
-  prevSlide() {
-    if (this.currentSlide > 0) {
-      this.currentSlide--;
+  prev(){
+    if (this.active > 0) {
+      this.active--;
     } else {
-      this.currentSlide = this.projects.length - 1; // Ir al último slide
+      this.active = this.projects.length - 1; // Ir al último slide
     }
   }
+
 
 }

@@ -1,7 +1,7 @@
-<section>
+<section class="h-[1300px] sm:h-[1200px] xl:h-[700px]">
   <div class="relative isolate px-6 pt-16 lg:px-8">
     <!-- burbujas -->
-    <div
+    <!-- <div
       class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
       aria-hidden="true"
     >
@@ -28,82 +28,39 @@
           );
         "
       ></div>
-    </div>
+    </div> -->
 
-    <div
-      [class.opacity-0]="isContentHidden"
-      class="mx-auto grid md:grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-16 lg:grid-cols-2 lg:px-8 transition-opacity duration-500"
-    >
-      <div>
-        <div class="text-start">
-          <h1
-            class="text-balance text-5xl font-semibold tracking-tight text-gray-900 dark:text-white"
-          >
-            {{ selectedTest.name }}
-          </h1>
-          <div
-            class="max-h-[200px] overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-transparent p-4 rounded-md mt-8"
-          >
-            <p
-              class="text-pretty text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-300"
-            >
-              {{ selectedTest.text }}
-            </p>
-          </div>
-          <div class="relative mt-10 flex items-center">
-            <!-- Botón Izquierdo -->
-            <button
-              (click)="scrollLeft()"
-              class="absolute left-0 z-10 p-2 bg-gray-800 text-white rounded-full"
-            >
-              <i class="fa-solid fa-angle-left"></i>
-            </button>
-
-            <!-- Contenedor de las Etiquetas -->
-            <div
-              #tagsContainer
-              class="flex items-center gap-x-6 overflow-x-auto scrollbar-hide p-10"
-            >
-              <div
-                class="inline-flex items-center rounded-full px-4 py-1 font-medium text-white whitespace-nowrap transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:cursor-default"
-                [ngClass]="tool.color"
-                *ngFor="let tool of selectedTest.tags"
-              >
-                <i
-                  *ngIf="tool.icon"
-                  [class]="tool.icon"
-                  class="mr-2 scale-125"
-                ></i>
-                {{ tool.text }}
-              </div>
-            </div>
-
-            <!-- Botón Derecho -->
-            <button
-              (click)="scrollRight()"
-              class="absolute right-0 z-10 p-2 bg-gray-800 text-white rounded-full"
-            >
-              <i class="fa-solid fa-angle-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="w-full h-full">
-        <div class="flex flex-col items-center gap-2">
-          <img
-            src="./assets/img/projects/{{
-              selectedTest.img[currentImageIndex]
-            }}"
-            class="h-[500px] transition-opacity duration-1000 ease-in-out"
-            [class.opacity-0]="fadeIn"
-          />
-          <img src="./assets/img/circles.svg" />
-        </div>
-      </div>
+    <div id="animation-carousel" class="w-full h-full transition-opacity duration-500" data-carousel="static" [class.opacity-0]="isContentHidden">
+      <!-- Carousel wrapper -->
+       <div class="relative w-full">
+         <div
+           data-carousel-item
+           *ngFor="let item of projects; index as i"
+           >
+           <app-item-project-section [item]="item" [class.opacity-0]="active !== i"></app-item-project-section>
+         </div>
+       </div>
+      <!-- Slider controls -->
+      <button type="button" class="absolute start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev (click)="prev()">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:bg-white/30 bg-gray-800/30 dark:group-hover:bg-white/50 group-hover:bg-gray-800/60 group-focus:ring-4 dark:group-focus:ring-white group-focus:ring-gray-800/70 group-focus:outline-none">
+              <svg class="w-4 h-4 dark:text-white text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+              </svg>
+              <span class="sr-only">Previous</span>
+          </span>
+      </button>
+      <button type="button" class="absolute end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next (click)="next()">
+          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:bg-white/30 bg-gray-800/30 dark:group-hover:bg-white/50 group-hover:bg-gray-800/60 group-focus:ring-4 dark:group-focus:ring-white group-focus:ring-gray-800/70 group-focus:outline-none">
+              <svg class="w-4 h-4 dark:text-white text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+              </svg>
+              <span class="sr-only">Next</span>
+          </span>
+      </button>
     </div>
 
     <!-- burbujas -->
-    <div
+    <!-- <div
       class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
       aria-hidden="true"
     >
@@ -130,6 +87,15 @@
           );
         "
       ></div>
-    </div>
+    </div> -->
   </div>
 </section>
+
+
+
+
+
+
+
+
+
