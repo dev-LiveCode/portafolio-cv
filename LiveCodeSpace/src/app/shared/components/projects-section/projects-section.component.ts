@@ -25,7 +25,7 @@ export class ProjectsSectionComponent {
 
   selectedTest!: IProject
 
-  isContentHidden = false; // Estado que controla si el contenido está oculto
+  isContentHidden = true; // Estado que controla si el contenido está oculto
 
   active: number = 0;
 
@@ -44,10 +44,10 @@ export class ProjectsSectionComponent {
       hideThreshold = 800;
     } else if (screenWidth > 768) { // Pantallas medianas (tablet)
       showThreshold = 500;
-      hideThreshold = 1200;
+      hideThreshold = 1700;
     } else { // Pantallas pequeñas (móviles)
       showThreshold = 400;
-      hideThreshold = 1400;
+      hideThreshold = 1800;
     }
 
 

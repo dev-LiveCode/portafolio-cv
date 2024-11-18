@@ -18,4 +18,12 @@ export class HeroSectionComponent {
     this.isContentHidden = scrollPosition > 150;
   }
 
+
+  scrollToContact(): void {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
 }

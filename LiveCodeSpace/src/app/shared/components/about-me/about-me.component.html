@@ -1,0 +1,73 @@
+<section>
+  <div class="relative isolate px-6 pt-24 lg:px-8">
+    <!-- burbujas -->
+    <div
+      class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+      aria-hidden="true"
+    >
+      <div
+        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+        style="
+          clip-path: polygon(
+            74.1% 44.1%,
+            100% 61.6%,
+            97.5% 26.9%,
+            85.5% 0.1%,
+            80.7% 2%,
+            72.5% 32.5%,
+            60.2% 62.4%,
+            52.4% 68.1%,
+            47.5% 58.3%,
+            45.2% 34.5%,
+            27.5% 76.7%,
+            0.1% 64.9%,
+            17.9% 100%,
+            27.6% 76.8%,
+            76.1% 97.7%,
+            74.1% 44.1%
+          );
+        "
+      ></div>
+    </div>
+
+    <!-- Content -->
+    <div
+      [class.opacity-0]="isContentHidden"
+      class="mx-auto grid md:grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:pt-32 sm:pb-16 lg:grid-cols-2 lg:px-8 transition-opacity duration-500 z-auto"
+    ></div>
+
+    <!-- Galaxias -->
+    <div
+      class="absolute -z-10 sm:top-[calc(100%-30rem)] md:rotate-[-5deg] top-[240px] md:-top-[250px] left-0 w-full px-[40px]"
+      aria-hidden="true"
+    >
+      <img
+        src="./assets/img/starsBG.svg"
+        width="1500"
+        height="1500"
+        decoding="async"
+        loading="eager"
+      />
+    </div>
+
+    <div class="absolute -z-10 bottom-0 left-0 w-full" aria-hidden="true">
+      <img
+        src="./assets/img/starsBG.svg"
+        width="1500"
+        height="1500"
+        decoding="async"
+        loading="eager"
+      />
+    </div>
+
+    <div class="absolute -z-10 top-0 right-0 w-full" aria-hidden="true">
+      <img
+        src="./assets/img/starsBG.svg"
+        width="1500"
+        height="1500"
+        decoding="async"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
