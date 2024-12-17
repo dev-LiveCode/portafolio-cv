@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IMenu } from '../../interfaces/interfaces';
 import { RouterModule } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -20,16 +21,23 @@ export class HeaderComponent implements OnInit {
     {path: 'blog', text: 'Blog'}
   ]
 
+  constructor(private themeService: ThemeService) {}
+
   get isDark() {
     return document.body.classList.contains('dark')
   }
 
   ngOnInit(): void {
-    this.logo = this.isDark ? './assets/img/logo-light.png' : './assets/img/logo-dark.png'
+    // this.logo = this.isDark ? './assets/img/logo-light.png' : './assets/img/logo-dark.png'
+    this.themeService.getTheme().subscribe(isDark => {
+      this.logo = isDark ? './assets/img/logo-light.png' : './assets/img/logo-dark.png';
+    });
   }
   
   changeTheme(){
-    document.body.classList.toggle('dark');
-    this.logo = this.isDark ? './assets/img/logo-light.png' : './assets/img/logo-dark.png'
+    // document.body.classList.toggle('dark');
+    // this.logo = this.isDark ? './assets/img/logo-light.png' : './assets/img/logo-dark.png'
+
+    this.themeService.toggleTheme();
   }
 }

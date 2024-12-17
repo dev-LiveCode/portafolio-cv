@@ -1,8 +1,9 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { IProject, PROJECTS } from '../../interfaces/interfaces';
 import { CommonModule } from '@angular/common';
 import { TagsComponent } from "../tags/tags.component";
 import { ItemProjectSectionComponent } from "../item-project-section/item-project-section.component";
+import { Carousel } from 'flowbite';
 
 @Component({
   selector: 'app-projects-section',
@@ -28,6 +29,11 @@ export class ProjectsSectionComponent {
   isContentHidden = true; // Estado que controla si el contenido está oculto
 
   active: number = 0;
+
+  opacity: boolean = false;
+
+
+  itemActive: IProject = this.projects[0]
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -67,6 +73,11 @@ export class ProjectsSectionComponent {
     } else {
       this.active = 0; // Reiniciar al primer slide
     }
+    this.opacity = !this.opacity
+    setTimeout(() => {
+      this.itemActive = this.projects[this.active]
+      this.opacity = !this.opacity
+    }, 500)
   }
 
   prev(){
@@ -75,7 +86,30 @@ export class ProjectsSectionComponent {
     } else {
       this.active = this.projects.length - 1; // Ir al último slide
     }
+    this.itemActive = this.projects[this.active]
   }
+
+
+  // ngAfterViewInit(): void {
+  //   // Selecciona el elemento del carousel
+  //   const carouselElement = document.getElementById('animation-carousel');
+
+  //   // Opcional: Configuración del carousel
+  //   const carouselOptions = {
+  //     interval: 5000, // Tiempo entre slides en ms
+  //     loop: true, // Habilitar loop
+  //   };
+
+  //   let asd: string = 'asd'
+
+  //   // Inicializa el carousel
+  //   if (carouselElement) {
+  //     new Carousel(carouselElement);
+  //     console.log("if")
+  //   }
+
+  //   console.log("añañakiii")
+  // }
 
 
 }

@@ -4,7 +4,7 @@
       aria-label="Global"
     >
       <div class="flex lg:flex-1">
-        <a routerLink='' class="-m-1.5 p-1.5 cursor-pointer" routerLinkActive="true">
+        <a routerLink='' class="-m-1.5 p-1.5 cursor-pointer hover:scale-110 transition duration-500" routerLinkActive="true">
           <span class="sr-only">Live Code</span>
           <img
             class="h-32 w-auto"
@@ -44,7 +44,7 @@
       <div class="hidden lg:flex lg:gap-x-12">
           <a
             *ngFor="let item of itemsMenu"
-            [routerLink]="item.path" class="text-xl/6 font-semibold text-gray-900 dark:text-white hover:cursor-pointer">{{item.text}}</a>
+            [routerLink]="item.path" class="text-xl/6 font-semibold text-gray-900 dark:text-white hover:cursor-pointer hover:scale-110 transition duration-500">{{item.text}}</a>
       </div>
 
       <!-- div change theme lg -->
