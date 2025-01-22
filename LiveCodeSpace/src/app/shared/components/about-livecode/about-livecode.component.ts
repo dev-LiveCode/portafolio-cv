@@ -26,12 +26,12 @@ export class AboutLivecodeComponent implements OnInit {
     if (screenWidth > 1200) { // Pantallas grandes (desktop)
       showThreshold = 400;
       hideThreshold = 1000;
-    } else if (screenWidth > 768) { // Pantallas medianas (tablet)
+    } else if (screenWidth > 900) { // Pantallas medianas (tablet)
       showThreshold = 500;
       hideThreshold = 1700;
     } else { // Pantallas pequeñas (móviles)
       showThreshold = 400;
-      hideThreshold = 1800;
+      hideThreshold = 2200;
     }
 
 

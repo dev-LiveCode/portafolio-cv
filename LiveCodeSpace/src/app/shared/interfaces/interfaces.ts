@@ -25,6 +25,7 @@ export interface ITags {
   iconDark?: string;
   color?: string;
   text?: string;
+  type?: Array<'cloud' | 'frontend' | 'backend' | 'database'>;
 }
 
 export interface IServices {
@@ -58,7 +59,7 @@ export const PROJECTS: IProject[] = [
       `LandingBongo/Screen web-front.png`,
     ],
     type: `pago`,
-    url: `https://www.bongoanalytics.com/landing`,
+    url: `https://www.bongoanalytics.com`,
     tags: [
       { icon: `fa-brands fa-angular`, color: `bg-red-500`, text: `Angular` },
       {
@@ -170,41 +171,49 @@ export const SERVICES: IServices[] = [
     title: `Web and mobile application development`,
     subtitle: `We transform your ideas into digital experiences.`,
     text: `We create intuitive and high performance web and mobile applications. We focus on an agile user experience and a design adapted to the needs of your customers, applying the best development practices to ensure scalability and long-term maintenance.`,
+    icon: `lni-code`
   },
   {
     title: `Process integration and automation with cloud computing`,
     subtitle: `Boost the efficiency of your business with cloud solutions.`,
     text: `We implement solutions that optimize your processes by integrating cloud services. With AWS, Azure, and Google Cloud, we achieve secure deployments, scalable storage, and real-time access to information, allowing you to focus on strategic decision making.`,
+    icon: `lni-cloud-check`
   },
   {
     title: `Data analysis and machine learning`,
     subtitle: `Turn your data into strategic decisions.`,
     text: `We help you discover hidden patterns in your data, facilitating informed decision making. With machine learning techniques and statistical analysis, we create customized solutions that provide valuable insights about your customers behavior and the performance of your processes.`,
+    icon: `lni-bar-chart`
   },
   {
     title: `API development and microservices architecture`,
     subtitle: `We facilitate the connectivity and scalability of your systems.`,
     text: `We design robust APIs and microservices that allow seamless integration and communication between different applications. We focus on modular solutions that facilitate scalability and maintenance of your platform as your business grows.`,
+    icon: `lni-code-alt`
   },
   {
     title: `Cloud architecture design for IoT solutions`,
     subtitle: `Connect devices and power your data.`,
     text: `We create Internet of Things (IoT) architectures that integrate with cloud services, capturing and analyzing real-time data from connected devices. Thus, we generate valuable information to monitor, control and optimize industrial or agricultural processes.`,
+    icon: `lni-cloud-network`
   },
   {
     title: `Digital transformation consulting`,
     subtitle: `Take your business to the next level with digital solutions.`,
     text: `We guide you through the digital transformation process, helping you to implement tools and processes that optimize productivity and decision making. With a strategic approach, we adapt digital solutions to your needs, enhancing the efficiency of each area of your business.`,
+    icon: `lni-laptop-phone`
   },
   {
     title: `Custom dashboard development`,
     subtitle: `Visualize your metrics in real time.`,
     text: `We design interactive dashboards that allow clear and accurate visualization of your key indicators. With user-friendly and customizable interfaces, you can easily access critical information to evaluate performance and make informed decisions.`,
+    icon: `lni-pie-chart`
   },
   {
     title: `Consulting in agile methodologies`,
     subtitle: `Boost your team's productivity with agile practices.`,
     text: `We implement agile methodologies such as Scrum or Kanban, tailored to your needs, to improve the efficiency and adaptability of your team. With a focus on collaboration and continuous delivery, we achieve more agile development cycles and projects aligned with business objectives.`,
+    icon: `lni-handshake`
   },
 ];
 
@@ -212,82 +221,110 @@ export const SKILLS: ITags[] = [
   {
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
-    text: 'Amazon Web Service'
+    text: 'Amazon Web Service',
+    type: ["cloud"],
   },
   {
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg',
-    text: 'Azure'
+    text: 'Azure',
+    type: ["cloud"],
+  },
+  {        
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg',
+    iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg',
+    text: 'Google Cloud Platform',
+    type: ["cloud"],
   },
   {
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-    text: 'Tailwind CSS'
+    text: 'Tailwind CSS',
+    type: ["frontend"],
   },
   {
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg',
-    text: 'Bootstrap'
+    text: 'Bootstrap',
+    type: ["frontend"],
   },
   { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
-    text: 'Angular'
+    text: 'Angular',
+    type: ["frontend"],
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularmaterial/angularmaterial-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angularmaterial/angularmaterial-original.svg',
-    text: 'Angular Material'
+    text: 'Angular Material',
+    type: ["frontend"],
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
-    text: 'React'
+    text: 'React',
+    type: ["frontend"],
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
-    text: 'Laravel'
+    text: 'Laravel',
+    type: ["backend"],
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-plain-wordmark.svg',
-    text: 'Nodejs'
+    text: 'Nodejs',
+    type: ["backend"],
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
-    text: 'Java'
+    text: 'Java',
+    type: ["backend"],
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
-    text: 'Javascript'
+    text: 'Javascript',
+    type: ["frontend", "backend"],
+   },
+   { 
+    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg',
+    iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+    text: 'Typescript',
+    type: ["frontend", "backend"],
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg',
-    text: 'Spring'
+    text: 'Spring',
+    type: ["backend"],
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-plain-wordmark.svg',
-    text: 'MongoDB'
+    text: 'MongoDB',
+    type: ["database"]
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg',
-    text: 'SQLServer'
+    text: 'SQLServer',
+    type: ["database"]
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',
-    text: 'MySQL'
+    text: 'MySQL',
+    type: ["database"]
    },
    { 
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
     iconDark: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
-    text: 'PostgreSQL'
+    text: 'PostgreSQL',
+    type: ["database"]
    },
 
 ];
