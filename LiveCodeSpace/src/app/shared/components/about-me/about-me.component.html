@@ -1,0 +1,117 @@
+<section>
+  <div class="relative isolate px-6 pt-24 lg:px-8">
+    <!-- burbujas -->
+    <div
+      class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+      aria-hidden="true"
+    >
+      <div
+        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+        style="
+          clip-path: polygon(
+            74.1% 44.1%,
+            100% 61.6%,
+            97.5% 26.9%,
+            85.5% 0.1%,
+            80.7% 2%,
+            72.5% 32.5%,
+            60.2% 62.4%,
+            52.4% 68.1%,
+            47.5% 58.3%,
+            45.2% 34.5%,
+            27.5% 76.7%,
+            0.1% 64.9%,
+            17.9% 100%,
+            27.6% 76.8%,
+            76.1% 97.7%,
+            74.1% 44.1%
+          );
+        "
+      ></div>
+    </div>
+
+    <!-- Content -->
+    <div
+      [class.opacity-0]="isContentHidden"
+      class="mx-auto grid md:grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:pt-32 sm:pb-16 lg:grid-cols-2 lg:px-8 transition-opacity duration-500"
+    >
+        <div class="hidden lg:flex items-center justify-center">
+            <div class="relative h-[600px] overflow-hidden rounded-full animate-shape-change border">
+                <img
+                src="./assets/img/profile.jpg"
+                alt="Foto de Victor"
+                class="w-full h-full object-cover object-left"
+                />
+            </div>
+        </div>
+        <div>
+            <h1
+              class="text-balance text-5xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-7xl"
+            >
+              Hello! I'm Victor
+            </h1>
+            <h2 class="mt-4 text-pretty text-xl font-medium text-gray-900 dark:text-white sm:text-5xl ">
+              {{ displayedText }}<span class="text-indigo-500">|</span> developer
+            </h2>
+            <p class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-300">
+              I am passionate about software development with a strong ability to transform concepts into tangible solutions. My approach is based on creating clean and efficient code, as well as effective collaboration in multidisciplinary teams. 
+            </p>
+            <p class="mt-5 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-300">
+              With 4 years of experience in the IT area participating in multiple projects, I have acquired knowledge in different programming languages, databases, architectures and tools, with a constant commitment to improvement, I aspire to continue leading innovative projects and contribute to the success of teams & companies.
+            </p>
+            <div class="mt-10 flex items-center justify-start gap-x-6">
+              <button
+                type="button"
+                class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                (click)="scrollToContact()"
+                >Contact me</button>
+  
+              <a href="./assets/pdf/CV Victor Vivas 2024 - 2025.pdf" 
+              target="_blank" class="text-sm/6 font-semibold text-gray-900 dark:text-white"
+                >Download CV <span aria-hidden="true">→</span></a
+              >
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Burbujas -->
+    <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+      <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+    </div>
+
+    <!-- Galaxias -->
+    <div
+      class="absolute -z-10 sm:top-[calc(100%-30rem)] md:rotate-[-5deg] top-[240px] md:-top-[250px] left-0 w-full px-[40px]"
+      aria-hidden="true"
+    >
+      <img
+        src="./assets/img/starsBG.svg"
+        width="1500"
+        height="1500"
+        decoding="async"
+        loading="eager"
+      />
+    </div>
+
+    <div class="absolute -z-10 bottom-0 left-0 w-full" aria-hidden="true">
+      <img
+        src="./assets/img/starsBG.svg"
+        width="1500"
+        height="1500"
+        decoding="async"
+        loading="eager"
+      />
+    </div>
+
+    <div class="absolute -z-10 top-0 right-0 w-full" aria-hidden="true">
+      <img
+        src="./assets/img/starsBG.svg"
+        width="1500"
+        height="1500"
+        decoding="async"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>

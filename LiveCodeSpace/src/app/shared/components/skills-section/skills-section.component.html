@@ -1,0 +1,18 @@
+<section class="py-16 ">
+    <div class="dark:text-white text-6xl" > 
+        <h2 class="text-center mb-10">SKILLS</h2>
+        <div class="flex justify-center items-center my-10">
+            <select class="block py-2.5 px-0 w-[50%] sm:w-[25%] text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer" (change)="filterSkills($event)">
+                @for (item of filterValues; track $index) {
+                    <option [selected]="$index == 0" [value]="item.value">{{item.text}}</option>
+                }
+                
+            </select>
+        </div>
+        <div class="flex flex-wrap justify-center">
+            @for (item of skillsFiltered; track $index) {
+                <app-skill-circle [tag]="item" @fadeInOut></app-skill-circle>
+            }
+        </div>
+    </div>
+</section>

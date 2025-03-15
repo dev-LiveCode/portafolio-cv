@@ -1,0 +1,8 @@
+<div 
+    class="mx-10 mb-1 w-[150px] h-[150px] rounded-full shadow-lg  flex items-center justify-center opacity-50 hover:opacity-100  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 bg-gray-50 dark:bg-[#1e1f39]" 
+    (mouseover)="change(true)" (mouseleave)="change(false)"
+>
+    <img [src]="isDark == true ? tag.iconDark : tag.icon" class="w-[50%]"/>
+    
+</div>
+<h3 [class.opacity-0]="!name" class="text-center dark:text-white transition ease-in-out delay-150 duration-200 text-xl mb-5">{{tag.text}}</h3>

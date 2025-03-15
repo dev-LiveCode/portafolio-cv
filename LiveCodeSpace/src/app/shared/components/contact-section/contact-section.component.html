@@ -1,0 +1,85 @@
+<section class="bg-transparent">
+    <div class="relative isolate ">
+
+        
+        <!-- burbuja -->
+        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+
+
+        <!-- content -->
+        <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Ready to bring your ideas to life? Fill out the form, and let's start creating together.</p>
+            <form [formGroup]="contactForm" (ngSubmit)="sendEmail()" class="space-y-8">
+                <div>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                    <input 
+                    type="email" 
+                    id="email"
+                    formControlName="email" 
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500  dark:shadow-sm-light" 
+                    placeholder="name@domain.com">
+                    <!-- Validation Error -->
+                    <div *ngIf="hasError('email', 'required')" class="text-red-500 text-sm mt-1">Email is required.</div>
+                    <div *ngIf="hasError('email', 'email')" class="text-red-500 text-sm mt-1">Invalid email format.</div>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+                    <input 
+                    type="text" 
+                    id="subject" 
+                    formControlName="subject"
+                    class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                    placeholder="Let us know how we can help you"
+                    required
+                    maxlength="100">
+                    <!-- Validation Error -->
+                    <div *ngIf="hasError('subject', 'required')" class="text-red-500 text-sm mt-1">Subject is required.</div>
+                    <div *ngIf="hasError('subject', 'maxLength')" class="text-red-500 text-sm mt-1">Max 100 characters allowed.</div>
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                    <textarea 
+                    id="message" 
+                    rows="6" 
+                    formControlName="message"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+                    placeholder="Leave a comment..."
+                    required
+                    maxlength="500" ></textarea>
+
+                    <!-- Validation Error -->
+                    <div *ngIf="hasError('message', 'required')" class="text-red-500 text-sm mt-1">Message is required.</div>
+                    <div *ngIf="hasError('message', 'maxLength')" class="text-red-500 text-sm mt-1">Max 500 characters allowed.</div>
+                </div>
+                <button 
+                type="submit" 
+                class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+            </form>
+        </div>
+
+        <!-- burbuja -->
+        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+            <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+        </div>
+
+        <!-- estrellas -->
+        <div class="absolute -z-10 sm:top-[calc(100%-30rem)]
+        md:rotate-[-5deg] top-[240px] md:-top-[250px] left-0 w-full px-[40px]
+        " aria-hidden="true">
+            <img src="./assets/img/starsBG.svg" width="1500" height="1500" decoding="async" loading="eager">
+        </div>
+
+        <!-- estrellas -->
+        <div class="absolute -z-10 -bottom-20 left-0 w-full" aria-hidden="true">
+            <img src="./assets/img/starsBG.svg" width="1500" height="1500" decoding="async" loading="eager">
+        </div>
+
+        <!-- estrellas -->
+        <div class="absolute -z-10 top-0 right-0 w-full" aria-hidden="true">
+            <img src="./assets/img/starsBG.svg" width="1500" height="1500" decoding="async" loading="eager">
+        </div> 
+    </div>
+  </section>
